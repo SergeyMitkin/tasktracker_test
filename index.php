@@ -8,9 +8,7 @@ session_start();
 $action = 'action_';
 $action .= (isset($_GET['act'])) ? $_GET['act'] : 'index';
 
-
-
-//генерируем страницу тест
+//генерируем страницу
 $controller = new C_page();
 $controller->$action();
 $controller->render();
