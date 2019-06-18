@@ -7,7 +7,7 @@
 ?>
 <?=$response?>
 <h3>Создайте задачу</h3>
-<form method="post" action = '?act=create' /> Выберете пользователя
+<form method="post" action = '?act=create' /> Выберете ответсвенного
     <select name="name">
     <?php
     foreach($usersData as $name) {
