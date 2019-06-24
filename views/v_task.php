@@ -16,5 +16,6 @@
     ?>
     </select>
 <p><input type="text" name="description" value="Текст задачи"></p>
+<p><input type="text" name="email" value="email"></p>
 <p><input type="submit" value="Отправить"/></p>
 </form>
