@@ -5,6 +5,4 @@ define('DB_NAME','host1764621');
 define('DB_USER','host1764621');
 define('DB_PASS','5452f4c6');
 
-//define('SALT2', 'awOIHO@EN@Oine q2enq2kbkb');
-
 
