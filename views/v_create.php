@@ -11,10 +11,11 @@
     <select name="name">
     <?php
     foreach($usersData as $name) {
-    echo '<option value="' . $name['id'] . '">' . $name['name'] . '</option>';
+    echo '<option value="' . $name['user_id'] . '">' . $name['user_name'] . '</option>';
     }
     ?>
     </select>
+<p><input type="text" name="task_name" value="Название задачи"></p>
 <p><input type="text" name="description" value="Текст задачи"></p>
 <p><input type="submit" value="Отправить"/></p>
 </form>
