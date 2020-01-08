@@ -1,6 +1,6 @@
 <?php
 //импортируем контроллер главной страницы
-include_once('controllers/C_Page.php');
+include_once('../controllers/C_Page.php');
 session_start();
 
 //получаем action из URL

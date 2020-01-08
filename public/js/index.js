@@ -1,4 +1,4 @@
-
+$(document).ready(function () {
 // Remove URL Tag Parameter from Address Bar
 if (window.parent.location.href.match(/res/)){
     if (typeof (history.pushState) != "undefined"){
@@ -8,3 +8,4 @@ if (window.parent.location.href.match(/res/)){
         window.parent.location = window.parent.location.pathname;
     }
 }
+})
