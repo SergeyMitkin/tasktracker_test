@@ -6,7 +6,6 @@
  */
 ?>
 <?=$response?>
-<h3>Создайте задачу</h3>
 
 <form method="post" action ='?act=create'/> Выберете ответсвенного
     <select name="name">
@@ -17,18 +16,22 @@
     ?>
     </select>
 
-    <p><input type="text" name="task_name" value="<?=$task_name?>"></p>
-    <p><input type="text" name="description" value="<?=$task_description?>"></p>
+    <br><br>
+    <label for="task_name">Введите название задачи </label>
+    <input type="text" id="task_name" name="task_name" value="<?=$task_name?>" placeholder="Название задачи">
 
-    <p>
-        <label for="date">Срок выполнения: </label>
-        <input type="date" id="date" name="date" value="<?=$date?>"/>
-    </p>
+    <br><br>
+    <label for="description">Введите описание задачи </label>
+    <input type="text" name="description" value="<?=$task_description?>" placeholder="Описание задачи">
 
-    <p>
-        <label for="time">Время: </label>
-        <input type="time" id="time" name="time" value="<?=$time?>"/>
-    </p>
+    <br><br>
+    <label for="date">Срок выполнения: </label>
+    <input type="date" id="date" name="date" value="<?=$date?>"/>
 
-    <p><input type="submit" value="Отправить"/></p>
+    <br><br>
+    <label for="time">Время: </label>
+    <input type="time" id="time" name="time" value="<?=$time?>"/>
+
+    <br><br>
+    <input type="submit" value="Отправить"/>
 </form>
