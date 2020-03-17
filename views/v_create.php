@@ -33,5 +33,5 @@
     <input type="time" id="time" name="time" value="<?=$time?>"/>
 
     <br><br>
-    <input type="submit" value="Отправить"/>
+    <input class="btn btn-success" type="submit" value="Отправить"/>
 </form>
