@@ -1,0 +1,132 @@
+/* шрифты */
+@font-face {
+    font-family: "3952";
+    src: url('../fonts/3952.ttf');
+}
+
+/* создание и редактирование задач */
+
+.create-container{
+    margin: 20px ;
+}
+
+.create-container form{
+    margin-left: 0px;
+    margin-right: 40%;
+    size: auto;
+    color: whitesmoke;
+    background: rgba(108,117,125, 0.8);
+    padding: 20px 20px 20px 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+}
+
+.task-item-container{
+    margin: 20px;
+    margin-right: 40%;
+    padding: 20px 20px 60px 20px;
+    size: auto;
+    background: rgba(108,117,125, 0.8);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+    font-size: 20px;
+    color: #fff;
+}
+
+.admin-buttons a{
+    margin-left: 10px;
+    float: right;
+}
+
+.create-container h1{
+    margin: 0;
+    color: #fff;
+    font-size: 60px;
+    text-align: center;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+}
+
+.task_description{
+    padding: 20px;
+    color: #4b4b4b;
+    background-color: #ebebeb;
+    border-radius: 5px;
+}
+
+/* действующие данные задачи при ёё редактировании */
+.group p{
+    padding-left: 10px;
+    margin-bottom: 0px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.create-container label,
+.task-item-container label
+{
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+.create-container input,
+.task-item-container input
+{
+    margin-top: 0px;
+    margin-left: 10px;
+    height: 40px;
+    width: 370px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+}
+
+.create-container textarea,
+.task-item-container textarea
+{
+    margin-top: 0px;
+    margin-left: 10px;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+}
+
+.create-container select {
+    margin-top: 0px;
+    margin-left: 10px;
+    height: 30px;
+    width: 220px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+}
+
+.create-container #time{
+    margin-top: 0px;
+    height: 30px;
+    width: 110px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+}
+
+.create-container button{
+    padding: 10px 20px;
+    height: 45px;
+    border: none;
+    text-transform: capitalize;
+    font-size: 15px;
+}

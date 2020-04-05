@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "3952";
+    src: url('../fonts/3952.ttf');
+}
+
+/* Навигация */
+.navigation h2 {
+    color: red;
+}
+
+nav li a {
+    margin: 10px;
+    font-size: large;
+    color: #aa3333;
+    background-color: #ebebeb;
+    opacity: 0.8;
+}
+
+nav li a:hover{
+    background-color: lightgrey;
+    color: #aa3333;
+}
