@@ -51,12 +51,18 @@
 .registration-container label,
 .auth-container label
 {
-    color: #ff2b2b;
-    font-weight: 600;
+    color: #49423d;
+    font-weight: 500;
     padding-left: 10px;
     text-transform: capitalize;
 }
 
+#feedback{
+    color: #ff2b2b;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-top: 5px;
+}
 .registration-container input,
 .auth-container input
 {

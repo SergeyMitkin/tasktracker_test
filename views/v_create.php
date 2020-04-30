@@ -55,7 +55,8 @@
 
                 <div class="group">
                     <label for="description">Введите описание задачи </label>
-                    <textarea name="description" value="<?=$task_description?>" placeholder="Описание задачи"></textarea>
+                    <textarea id="description" name="description" value="<?=$task_description?>" placeholder="Описание задачи"></textarea>
+                    <div id="charactersLeft">180 символов</div>
                 </div>
 
                 <div class="group">
