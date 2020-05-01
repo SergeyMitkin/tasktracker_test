@@ -38,6 +38,10 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
 }
 
+.modal-content{
+    background: rgba(235,235,235, 1.0);
+}
+
 .registration-container h1,
 .auth-container h1{
     margin: 0;
@@ -129,3 +133,5 @@
     text-transform: capitalize;
     font-size: 15px;
 }
+
+
