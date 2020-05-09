@@ -45,6 +45,11 @@
     color: #fff;
 }
 
+.edit-form-button{
+    margin-left: 20px;
+    margin-top: 16px;
+}
+
 .admin-buttons a{
     margin-left: 10px;
     float: right;

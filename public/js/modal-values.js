@@ -1,13 +1,22 @@
 // Выводим данные задачи в модальном окне
 
-function getTaskId(e) {
+function getTaskValues(e) {
     if (!e.preventDefault()){
-        //console.log('entered to prevent');
         var url = "index.php";
         var action = "taskItem";
     };
-    var target = e.target.id;
-    var task_id = target.substr(5);
+
+    var elTitle = document.getElementById('taskModalLabel');
+    var elEditTitle = document.getElementById('edit_model_title');
+    var elEditTitleButton = document.getElementById("edit-title-button");
+    elEditTitleButton.setAttribute("hidden", "");
+
+    hideEditForm(elTitle, elEditTitle);
+
+    // получаем id задачи
+    var target_id = e.target.id;
+    var obj_id = target_id.split('_');
+    var task_id = obj_id[2];
 
     var elTaskName = document.getElementById('taskModalLabel');
     var elTaskDescription = document.getElementById('modal-task-description');
@@ -15,8 +24,9 @@ function getTaskId(e) {
     var elTaskCreatedDate = document.getElementById('modal-task-created-date');
     var elTaskDeadLine = document.getElementById('modal-task-dead-line');
     var elTaskStatus = document.getElementById('modal-task-status');
+    var elTaskTitleHidden  = document.getElementById('hidden-title');
 
-    var elDelete = document.getElementById('delete');
+    var elDelete = document.getElementById('delete_button');
     elDelete.setAttribute("hidden", "");
 
     $.ajax({
@@ -31,11 +41,14 @@ function getTaskId(e) {
         },
         success: function (data) {
             var obj = jQuery.parseJSON(data)[0];
-            //console.log(obj);
+
             var userLogin = obj['login'];
 
-            if (userLogin == sessionUserLogin || userLogin == 'admin') {
-                elDelete.removeAttribute("hidden", "");
+            if(typeof(sessionUserLogin) != "undefined" && sessionUserLogin !== null) {
+                if (userLogin == sessionUserLogin || userLogin == 'admin') {
+                    elDelete.removeAttribute("hidden", "");
+                    elEditTitleButton.removeAttribute("hidden", "");
+                }
             }
 
             elTaskName.textContent = obj['task_name'];
@@ -44,6 +57,7 @@ function getTaskId(e) {
             elTaskCreatedDate.textContent = obj['created_at'];
             elTaskDeadLine.textContent = obj['dead_line'];
             elTaskStatus.textContent = obj['status_name'];
+            elTaskTitleHidden.setAttribute('value', obj['task_id']);
         },
     });
 }
@@ -51,7 +65,7 @@ function getTaskId(e) {
 var taskRow = document.getElementById("row-tasks");
 
 taskRow.addEventListener('click', function (e) {
-    getTaskId(e);
+    getTaskValues(e);
 }, true);
 
 

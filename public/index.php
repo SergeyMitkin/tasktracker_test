@@ -9,7 +9,22 @@ $action = 'action_';
 $action .= (isset($_GET['act'])) ? $_GET['act'] : 'index';
 
 // передача данных через ajax-запросы
-$isAjax = (isset($_GET['ajax'])) ? $_GET['ajax'] : false;
+$isAjax = getAjax();
+
+function getAjax(){
+    $isAjax = '';
+
+    if (isset($_GET['ajax'])){
+        $isAjax = $_GET['ajax'];
+    }elseif (isset($_POST['ajax'])){
+        $isAjax = $_POST['ajax'];
+    }else{
+        $isAjax = false;
+    }
+
+    return $isAjax;
+};
+
 
     // генерируем страницу
 if (!$isAjax) {

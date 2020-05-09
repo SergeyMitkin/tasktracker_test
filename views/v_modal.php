@@ -1,14 +1,35 @@
 <script>
+    <?if (isset($_SESSION['user']['login'])){;?>
     var sessionUserLogin = "<?php echo $_SESSION['user']['login']; ?>";
+    <?}
+    ?>
 </script>
 <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModal" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
+
                 <h1 class="modal-title card-title" id="taskModalLabel"></h1>
+
+                <form class="edit-form" id="edit_model_title" hidden>
+                    <div class="group">
+                        <label for="task-title-input">Название задачи </label>
+                        <input type="text" id="task-title-input" name="task_name" placeholder="Название задачи">
+                    </div>
+
+                    <input id="hidden-title" name="hidden_title" type="hidden">
+
+                    <div class="group" align="center">
+                        <button id="edit-title-post" class="btn btn-outline-light">Отправить</button>
+                    </div>
+                </form>
+
+                <button class="btn btn-outline-light edit-form-button" id="edit-title-button" hidden>Изменить</button>
+
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
             </div>
             <div class="modal-body">
                 <p id="modal-task-description" class="task_description"></p>
@@ -28,16 +49,8 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary">Save</button>
-
-
-
-                <?
-        // кнопка удаления задачи
-           // if ($_SESSION['user']['login'] == 'admin' || $_SESSION['user']['login'] == "$user_login"){
-            //?>
-            <a class="btn btn-danger" id="delete" href="?act=one&delete=on&id_task=<?=$task_id?>" role="button">Удалить</a>
-        <?//}?>
+                <button class="btn btn-primary">Редактировать</button>
+                <a class="btn btn-danger" id="delete_button" href="?act=one&delete=on&id_task=<?=$task_id?>" role="button">Удалить</a>
             </div>
         </div>
     </div>

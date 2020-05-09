@@ -21,6 +21,21 @@ class C_Ajax extends Controller
         $task_data = getTask($id_task);
 
         echo $task_data;
+    }
 
+    public function taskUpdate(){
+        $response = [];
+        $task_id = $_POST['id_task'];
+        $update = $_POST['update'];
+        $task_name = $_POST['task_name'];
+
+        switch ($update) {
+            case "title": $updated_task_name = updateTaskName($task_id, $task_name);
+        }
+
+        $response['id_task'] = $task_id;
+        $response['updated_task_name'] = $updated_task_name;
+        $response_json = json_encode($response);
+        echo $response_json;
     }
 }
