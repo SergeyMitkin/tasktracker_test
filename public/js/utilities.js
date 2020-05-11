@@ -23,14 +23,36 @@ function removeEvent(el, event, callback) {
 }
 
 
-function hideEditForm(elTitle, elEditTitle){
+function hideEditTitleForm(elTitle, elEditTitle){
     elTitle.removeAttribute("hidden");
     elEditTitle.setAttribute("hidden", "");
+}
+
+function hideEditDescriptionForm(elDescription, elEditDescription){
+    elDescription.removeAttribute("hidden");
+    elEditDescription.setAttribute("hidden", "");
+}
+
+function hideEditUserForm(elUser, elEditUser){
+    elUser.removeAttribute("hidden");
+    elEditUser.setAttribute("hidden", "");
 }
 
 function visibleTitleEditForm(elTitle, elEditTitle, elEditTitleButton){
     elTitle.setAttribute("hidden", "");
     elEditTitle.removeAttribute("hidden");
     elEditTitleButton.setAttribute("hidden", "");
+}
+
+function visibleDescriptionEditForm(elDescription, elEditDescription,elEditDescriptionButton){
+    elDescription.setAttribute("hidden", "");
+    elEditDescription.removeAttribute("hidden");
+    elEditDescriptionButton.setAttribute("hidden", "");
+}
+
+function visibleUserEditForm(elUser, elEditUser,elEditUserButton){
+    elUser.setAttribute("hidden", "");
+    elEditUser.removeAttribute("hidden");
+    elEditUserButton.setAttribute("hidden", "");
 }
 

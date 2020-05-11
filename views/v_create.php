@@ -69,8 +69,6 @@
                     <input type="time" id="time" name="time" value="<?=$time?>"/>
                 </div>
             <?}?>
-        <div class="group" align="center">
-            <button class="btn btn-light">Отправить</button>
-        </div>
+
     </form>
 </div>
