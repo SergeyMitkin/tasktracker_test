@@ -60,7 +60,4 @@ $('#edit-user-button').on('click', function(){
 
     visibleUserEditForm(elUser, elEditUser, elEditUserButton); // Показываем форму для редактирования описания
 
-    // var elTaskUserInput = document.getElementById('task-user-input'); // Поле ввода
-    // var taskUser = elUser.textContent; // Исходное значение
-    // elTaskUserInput.setAttribute("value", taskUserText); // Помещаем исходное значение в поле формы редактирования
 });
