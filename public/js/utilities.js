@@ -38,6 +38,10 @@ function hideEditUserForm(elUser, elEditUser){
     elEditUser.setAttribute("hidden", "");
 }
 
+function visibleEditForm(elChangedValue, elEditForm,elChangeButton){
+    elChangedValue
+}
+
 function visibleTitleEditForm(elTitle, elEditTitle, elEditTitleButton){
     elTitle.setAttribute("hidden", "");
     elEditTitle.removeAttribute("hidden");

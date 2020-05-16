@@ -1,6 +1,6 @@
-var formDescription = document.getElementById('edit_modal_description'); // Форма редактирования описания задачи
+var elEditDescriptionForm = document.getElementById('edit-task_modal_description-form'); // Форма редактирования описания задачи
 
-addEvent(formDescription, 'submit', function (e) {
+addEvent(elEditDescriptionForm, 'submit', function (e) {
     e.preventDefault();
     var elements = this.elements;
     var initial_value = elements.task_description.value;
@@ -27,15 +27,14 @@ addEvent(formDescription, 'submit', function (e) {
             var task_id = obj['id_task'];
             var updated_task_description = obj['updated_value'];
 
-            var elDescription = document.getElementById('modal-task-description');
+            var elDescription = document.getElementById('task_modal_description');
             var idDescriptionCardPreview = "description_task_" + task_id;
             var elDescriptionCardPreview = document.getElementById(idDescriptionCardPreview);
-            var elEditDescription = document.getElementById('edit_modal_description');
 
             elDescription.textContent = updated_task_description;
             elDescriptionCardPreview.textContent = updated_task_description;
 
-            hideEditDescriptionForm(elDescription, elEditDescription);
+            hideEditDescriptionForm(elDescription, elEditDescriptionForm);
 
         },
         //dataType : "json"

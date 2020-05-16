@@ -9,12 +9,12 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <h1 class="modal-title card-title" id="taskModalLabel"></h1>
+                <h1 class="modal-title card-title" id="task_modal_title"></h1>
 
-                <form class="edit-form" id="edit_modal_title" hidden>
+                <form class="edit-form" id="edit-task_modal_title-form" hidden>
                     <div class="group">
-                        <label for="task-title-input">Название задачи </label>
-                        <input type="text" id="task-title-input" name="task_name" placeholder="Название задачи">
+                        <label for="task_modal_title-input">Название задачи </label>
+                        <input type="text" id="task_modal_title-input" name="task_name" placeholder="Название задачи">
                     </div>
 
                     <input id="hidden-title" class="hidden-title-id" name="hidden_title" type="hidden">
@@ -24,7 +24,7 @@
                     </div>
                 </form>
 
-                <button class="btn btn-outline-light edit-button" id="edit-title-button" hidden>Изменить</button>
+                <button class="btn btn-outline-light edit-button edit-text-button" id="edit-task_modal_title-button" hidden>Изменить</button>
 
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -32,12 +32,12 @@
             </div>
 
             <div class="modal-body">
-                <p id="modal-task-description" class="task_description"></p>
+                <p id="task_modal_description" class="task_description"></p>
 
-                <form class="edit-form" id="edit_modal_description" hidden>
+                <form class="edit-form" id="edit-task_modal_description-form" hidden>
                     <div class="group">
-                        <label for="task-description-input">Название задачи </label>
-                        <input type="text" id="task-description-input" name="task_description">
+                        <label for="task_modal_description-input">Описание задачи </label>
+                        <input type="text" id="task_modal_description-input" name="task_description">
                     </div>
 
                     <input id="hidden-description" class="hidden-title-id" name="hidden_description" type="hidden">
@@ -47,14 +47,14 @@
                     </div>
                 </form>
 
-                <button class="btn btn-outline-light edit-button" id="edit-description-button" hidden>Изменить</button>
+                <button class="btn btn-outline-light edit-button edit-text-button" id="edit-task_modal_description-button" hidden>Изменить</button>
 
                 <!-- Ответственный -->
                 <p>Ответственный: <span id="modal-task-user"></span></p>
 
                 <form class="edit-form" id="edit_modal_user" hidden>
                     <div class="group">
-                        <label for="task-user-select">Выберете ответсвенного</label>
+                        <label for="task-user-select">Выберете ответственного</label>
                         <select id="task-user-select" name="task-user-select"></select>
                     </div>
 

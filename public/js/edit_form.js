@@ -1,16 +1,41 @@
+$(".edit-text-button").on('click', function () {
+    var changeButtonId = $(this).attr("id"); // Получаем id кнопки "Изменить". Она содержит обозначение поля задачи (имя, ответственный, срок выполнения и т.д.), которое мы изменяем
+    var elChangedData = changeButtonId.split('-', 2)[1]; // Получаем значение поля задачи для редактирования
+    var formId = 'edit-' + elChangedData + '-form'; // Получаем id формы редактирования
+    var inputForChangeId = elChangedData + '-input'; // Получаем id поля редактирования текста
+
+    var elChangedValue = document.getElementById(elChangedData); // Имя задачи
+    var elEditForm = document.getElementById(formId); // Форма редактирования
+    var elChangeButton = document.getElementById(changeButtonId); // Кнопка изменить в соответсвующем поле
+
+    // При редактировании поля
+    elChangedValue.setAttribute("hidden", ""); // Скрываем элемент со значением поля
+    elEditForm.removeAttribute("hidden"); // Показываем форму редактирования
+    elChangeButton.setAttribute("hidden", ""); // Скрываем кнопку "Изменить"
+
+    var elInputForChange = document.getElementById(inputForChangeId); // Input для изменения данных
+    var initialValue = elChangedValue.textContent; // Исходное значение
+    elInputForChange.setAttribute("value", initialValue); // Помещаем исходное значение в поле формы редактирования
+
+    //console.log(initialValue);
+})
+
+/*
 $('#edit-title-button').on('click', function(){
+    // var id_good = $(this).attr("id").substr(5);
 
     var elTitle = document.getElementById('taskModalLabel'); // Имя задачи
     var elEditTitle = document.getElementById('edit_modal_title'); // Форма редактирования
     var elEditTitleButton = document.getElementById("edit-title-button"); // Кнопка "Изменить"
 
-    visibleTitleEditForm(elTitle, elEditTitle,elEditTitleButton); // Показываем форму для редактирования имани для админа или ответсвенного
+    visibleTitleEditForm(elTitle, elEditTitle,elEditTitleButton); // Показываем форму для редактирования названия задачи
 
     var elTaskTitleInput = document.getElementById('task-title-input'); // Поле ввода
     var taskTitleText = elTitle.textContent; // Исходное значение
     elTaskTitleInput.setAttribute("value", taskTitleText); // Помещаем исходное значение в поле формы редактирования
 });
-
+*/
+/*
 $('#edit-description-button').on('click', function(){
     var elDescription = document.getElementById('modal-task-description'); // Описание задачи
     var elEditDescription = document.getElementById('edit_modal_description'); // Форма для редактирования
@@ -22,6 +47,7 @@ $('#edit-description-button').on('click', function(){
     var taskDescriptionText = elDescription.textContent; // Исходное значение
     elTaskDescriptionInput.setAttribute("value", taskDescriptionText); // Помещаем исходное значение в поле формы редактирования
 });
+*/
 
 $('#edit-user-button').on('click', function(){
     var elUser = document.getElementById('modal-task-user'); // Ответсвенный

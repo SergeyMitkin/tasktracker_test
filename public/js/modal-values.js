@@ -7,9 +7,9 @@ function getTaskValues(e) {
     };
 
     // Элементы для переменных задачи
-    var elTitle = document.getElementById('taskModalLabel'); // Имя задачи
-    var elDescription = document.getElementById("modal-task-description"); // Описание задачи
-    var elUser = document.getElementById("modal-task-user"); // Ответсвенный
+    var elTitle = document.getElementById('task_modal_title'); // Имя задачи
+    var elDescription = document.getElementById("task_modal_description"); // Описание задачи
+    var elUser = document.getElementById("modal-task-user"); // Ответственный
     var elTaskUserHiddenId = document.getElementById("hidden-user-id") // Input hidden содержащий id ответсвенного
     var elTaskCreatedDate = document.getElementById('modal-task-created-date'); // Дата создания задачи
     var elTaskDeadLine = document.getElementById('modal-task-dead-line'); // Дата исполненеия
@@ -68,12 +68,12 @@ function getTaskValues(e) {
             // Отображаем данные задачи в модальном окне
             elTitle.textContent = obj['task_name']; // Имя задачи
             elDescription.textContent = obj['description']; // Описание задачи
-            elUser.textContent = obj['user_name']; // Ответсвенный
+            elUser.textContent = obj['user_name']; // Ответственный
             elTaskCreatedDate.textContent = obj['created_at']; // Дата создания задачи
             elTaskDeadLine.textContent = obj['dead_line']; // Срок выполнения задачи
             elTaskStatus.textContent = obj['status_name']; // Статаус задачи
 
-            // Помещаем id исходного ответсвенного в поле input hidden для отображения его в <select> при смене пользователя, ответсвенного за выполнение задачи
+            // Помещаем id исходного ответственного в поле input hidden для отображения его в <select> при смене пользователя, ответсвенного за выполнение задачи
             elTaskUserHiddenId.setAttribute('value', obj['user_id']);
         },
     });

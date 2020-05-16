@@ -1,6 +1,7 @@
-var formTitle = document.getElementById('edit_modal_title'); // Форма редактирования имени задачи
+// Редактируем имя задачи
+var elEditTitleForm = document.getElementById('edit-task_modal_title-form'); // Форма редактирования имени задачи
 
-addEvent(formTitle, 'submit', function (e) {
+addEvent(elEditTitleForm, 'submit', function (e) {
     e.preventDefault();
     var elements = this.elements;
     var initial_value = elements.task_name.value;
@@ -26,15 +27,14 @@ addEvent(formTitle, 'submit', function (e) {
             var task_id = obj['id_task'];
             var updated_task_name = obj['updated_value'];
 
-            var elTitle = document.getElementById('taskModalLabel');
+            var elTitle = document.getElementById('task_modal_title');
             var idTitleCardPreview = "title_task_" + task_id;
             var elTitleCardPreview = document.getElementById(idTitleCardPreview);
-            var elEditTitle = document.getElementById('edit_modal_title');
 
             elTitle.textContent = updated_task_name;
             elTitleCardPreview.textContent = updated_task_name;
 
-            hideEditTitleForm(elTitle, elEditTitle);
+            hideEditTitleForm(elTitle, elEditTitleForm);
 
         },
         //dataType : "json"
