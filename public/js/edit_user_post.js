@@ -1,12 +1,13 @@
-var formUser = document.getElementById('edit_modal_user'); // Форма смены ответсвенного
+// Отправка формы смены ответсвенного за выполнения  задачи на сервер
+var elEditUserForm = document.getElementById('edit-task_modal_user-form'); // Форма смены ответсвенного
 
-addEvent(formUser, 'submit', function (e) {
+addEvent(elEditUserForm, 'submit', function (e) {
     e.preventDefault();
 
     var elements = this.elements; // Элементы формы
     var task_id = elements.hidden_user.value; // Id редактируемой задачи
-    var elSelectedUser = document.getElementById("task-user-select").options.selectedIndex; // Выбранный пользователь
-    var user_id = document.getElementById("task-user-select").options[elSelectedUser].value; // Id пользователя
+    var elSelectedUser = document.getElementById("task_modal_user-select").options.selectedIndex; // Выбранный пользователь
+    var user_id = document.getElementById("task_modal_user-select").options[elSelectedUser].value; // Id пользователя
 
     // Переменные для ajax-запроса
     var action = "taskUpdate";
@@ -32,15 +33,14 @@ addEvent(formUser, 'submit', function (e) {
             var updated_user_name = obj['updated_value'][0];
 
             // Помещаем имя нового ответственного в карточку задачи и её превью
-            var elUser = document.getElementById('modal-task-user');
-            var idUserCardPreview = "user_task_" + task_id;
+            var elUser = document.getElementById('task_modal_user');
+            var idUserCardPreview = "username_task_" + task_id;
             var elUserCardPreview = document.getElementById(idUserCardPreview);
             elUser.textContent = updated_user_name;
             elUserCardPreview.textContent = updated_user_name;
 
-            // Скрываем форму изменения ответсвенного, елси нет доступа
-            var elEditUser = document.getElementById('edit_modal_user');
-            hideEditUserForm(elUser, elEditUser);
+            elEditUserForm.setAttribute("hidden", "");// Скрываем форму изменения ответсвенного, елси нет доступа
+            elUser.removeAttribute("hidden"); // Показываем едемент с именем ответсвенного, если он был скрыт
         },
         //dataType : "json"
     });

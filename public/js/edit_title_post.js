@@ -1,4 +1,4 @@
-// Редактируем имя задачи
+// Отправка формы редактирования названия задачи на сервер
 var elEditTitleForm = document.getElementById('edit-task_modal_title-form'); // Форма редактирования имени задачи
 
 addEvent(elEditTitleForm, 'submit', function (e) {
@@ -7,6 +7,7 @@ addEvent(elEditTitleForm, 'submit', function (e) {
     var initial_value = elements.task_name.value;
     var task_id = elements.hidden_title.value;
     var action = "taskUpdate";
+
 
     $.ajax({
         url: 'index.php',
@@ -26,7 +27,7 @@ addEvent(elEditTitleForm, 'submit', function (e) {
             var obj = jQuery.parseJSON(response);
             var task_id = obj['id_task'];
             var updated_task_name = obj['updated_value'];
-
+            //console.log(task_id);
             var elTitle = document.getElementById('task_modal_title');
             var idTitleCardPreview = "title_task_" + task_id;
             var elTitleCardPreview = document.getElementById(idTitleCardPreview);
@@ -34,8 +35,8 @@ addEvent(elEditTitleForm, 'submit', function (e) {
             elTitle.textContent = updated_task_name;
             elTitleCardPreview.textContent = updated_task_name;
 
-            hideEditTitleForm(elTitle, elEditTitleForm);
-
+            elEditTitleForm.setAttribute("hidden", ""); // Скрываем форму изменения названия
+            elTitle.removeAttribute("hidden"); // Показываем элемент с названием задачи
         },
         //dataType : "json"
     });

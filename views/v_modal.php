@@ -8,8 +8,11 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                <!-- id задачи -->
+                <p id="task_modal_id" hidden></p>
 
-                <h1 class="modal-title card-title" id="task_modal_title"></h1>
+                <!-- Название задачи -->
+                <h1 class="modal-title initial-value card-title" id="task_modal_title"></h1>
 
                 <form class="edit-form" id="edit-task_modal_title-form" hidden>
                     <div class="group">
@@ -17,7 +20,7 @@
                         <input type="text" id="task_modal_title-input" name="task_name" placeholder="Название задачи">
                     </div>
 
-                    <input id="hidden-title" class="hidden-title-id" name="hidden_title" type="hidden">
+                    <input id="hidden-title" class="hidden-task-id" name="hidden_title" type="hidden">
 
                     <div class="group" align="center">
                         <button id="edit-title-post" class="btn btn-outline-light">Отправить</button>
@@ -32,7 +35,9 @@
             </div>
 
             <div class="modal-body">
-                <p id="task_modal_description" class="task_description"></p>
+
+                <!-- Описание задачи -->
+                <p id="task_modal_description" class="task_description initial-value"></p>
 
                 <form class="edit-form" id="edit-task_modal_description-form" hidden>
                     <div class="group">
@@ -40,7 +45,7 @@
                         <input type="text" id="task_modal_description-input" name="task_description">
                     </div>
 
-                    <input id="hidden-description" class="hidden-title-id" name="hidden_description" type="hidden">
+                    <input id="hidden-description" class="hidden-task-id" name="hidden_description" type="hidden">
 
                     <div class="group" align="center">
                         <button id="edit-description-post" class="btn btn-outline-light">Отправить</button>
@@ -50,15 +55,15 @@
                 <button class="btn btn-outline-light edit-button edit-text-button" id="edit-task_modal_description-button" hidden>Изменить</button>
 
                 <!-- Ответственный -->
-                <p>Ответственный: <span id="modal-task-user"></span></p>
+                <p>Ответственный: <span class="initial-value" id="task_modal_user"></span></p>
 
-                <form class="edit-form" id="edit_modal_user" hidden>
+                <form class="edit-form" id="edit-task_modal_user-form" hidden>
                     <div class="group">
-                        <label for="task-user-select">Выберете ответственного</label>
-                        <select id="task-user-select" name="task-user-select"></select>
+                        <label for="task_modal_user-select">Выберете ответственного</label>
+                        <select id="task_modal_user-select" name="task-user-select"></select>
                     </div>
 
-                    <input id="hidden-user" class="hidden-title-id" name="hidden_user" type="hidden">
+                    <input id="hidden-user" class="hidden-task-id" name="hidden_user" type="hidden">
                     <input id="hidden-user-id" name="hidden_user_id" type="hidden">
 
                     <div class="group" align="center">
@@ -66,39 +71,55 @@
                     </div>
                 </form>
 
-                <button class="btn btn-outline-light edit-button" id="edit-user-button" hidden>Изменить</button>
+                <button class="btn btn-outline-light edit-button" id="edit-task_modal_user-button" hidden>Изменить</button>
 
+                <!-- Дата создания и выполнения задачи -->
                 <div class="row text-center">
                     <p class="col-6">создана:
                         <em id="modal-task-created-date"></em>
                     </p>
+
+                    <!-- Срок выполнения задачи -->
                     <p class="col-6">срок выполнения:
-                        <em id="modal-task-dead-line"></em>
+                        <em class="initial-value" id="task_modal_deadline"></em>
                     </p>
+
+                    <form class="edit-form" id="edit-task_modal_deadline-form" hidden>
+
+                        <div class="group">
+                            <label for="date">Дата: </label>
+                            <input type="date" id="task_modal_date-input" name="task_date"/>
+                        </div>
+
+                        <div class="group">
+                            <label for="time">Время: </label>
+                            <input type="time" id="task_modal_time-input" name="task_time"/>
+                        </div>
+
+                        <input id="hidden-date" class="hidden-task-id" name="hidden_deadline" type="hidden">
+
+                        <div class="group" align="center">
+                            <button id="edit-date-post" class="btn btn-outline-light">Отправить</button>
+                        </div>
+                    </form>
+
+                    <button class="btn btn-outline-light edit-button" id="edit-task_modal_deadline-button" hidden>Изменить</button>
+
                 </div>
 
-                <p id="modal-task-status"></p>
+                <!-- Статус задачи -->
+                <p>Статус: <em class="initial-value" id="task_modal_status"></em></p>
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                <button class="btn btn-success" id="edit-task_modal_status-button">Выполнена</button>
+
                 <button class="btn btn-primary">Редактировать</button>
-                <a class="btn btn-danger edit-button" id="delete_button" href="?act=one&delete=on&id_task=<?=$task_id?>" role="button">Удалить</a>
+                <button class="btn btn-danger">Удалить</button>
             </div>
         </div>
     </div>
 </div>
-
-
-<!--
-                <form id="modal-login">
-                    <div class="two-thirds column" id="modal-main">
-                        <legend>Авторизация</legend>
-                        <label for="modal-username">Логин:</label>
-                        <input type="text" id="modal-username" name="modal-username"/>
-                        <label for="modal-pwd">Пароль:</label>
-                        <input type="password" id="modal-pwd" name="pwd-username"/>
-                        <input type="submit" value="Войти">
-                    </div>
-                </form>
-                -->
 

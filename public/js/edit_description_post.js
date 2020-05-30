@@ -1,3 +1,4 @@
+// Отправка формы редактирования описания задачи на сервер
 var elEditDescriptionForm = document.getElementById('edit-task_modal_description-form'); // Форма редактирования описания задачи
 
 addEvent(elEditDescriptionForm, 'submit', function (e) {
@@ -34,7 +35,8 @@ addEvent(elEditDescriptionForm, 'submit', function (e) {
             elDescription.textContent = updated_task_description;
             elDescriptionCardPreview.textContent = updated_task_description;
 
-            hideEditDescriptionForm(elDescription, elEditDescriptionForm);
+            elEditDescriptionForm.setAttribute("hidden", ""); // Скрываем форму редактирования описания
+            elDescription.removeAttribute("hidden"); // Показываем элемент с описанием задачи
 
         },
         //dataType : "json"

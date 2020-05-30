@@ -84,22 +84,6 @@ footer{
     color: #00ff00;
 }
 
-/*
-article h2{
-    color: #aa3333;
-    font-size: 48px;
-}
-
-article p{
-    line-height: 2em;
-    color: #4b4b4b;
-}
-
-#content{
-    background-color: #ebebeb;
-    padding: 20px;
-}
-*/
 
 .card:hover{
     background: rgba(108,117,125, 0.9);
