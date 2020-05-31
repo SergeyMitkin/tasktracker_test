@@ -81,7 +81,7 @@ function getTaskValues(e) {
             elDescription.textContent = obj['description']; // Описание задачи
             elUser.textContent = obj['user_name']; // Ответственный
             elTaskCreatedDate.textContent = obj['created_at']; // Дата создания задачи
-            elTaskDeadLine.textContent = obj['dead_line']; // Срок выполнения задачи
+            elTaskDeadLine.textContent = obj['dead_line'].substr(0, 16); // Срок выполнения задачи без секнд
             elTaskStatus.textContent = obj['status_name']; // Статаус задачи
 
             // Помещаем id исходного ответственного в поле input hidden для отображения его в <select> при смене пользователя, ответсвенного за выполнение задачи

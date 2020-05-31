@@ -8,7 +8,6 @@ addEvent(elEditTitleForm, 'submit', function (e) {
     var task_id = elements.hidden_title.value;
     var action = "taskUpdate";
 
-
     $.ajax({
         url: 'index.php',
         type: "POST",
@@ -27,7 +26,6 @@ addEvent(elEditTitleForm, 'submit', function (e) {
             var obj = jQuery.parseJSON(response);
             var task_id = obj['id_task'];
             var updated_task_name = obj['updated_value'];
-            //console.log(task_id);
             var elTitle = document.getElementById('task_modal_title');
             var idTitleCardPreview = "title_task_" + task_id;
             var elTitleCardPreview = document.getElementById(idTitleCardPreview);

@@ -57,6 +57,9 @@ class C_Ajax extends Controller
             case "status":
                 $updated_value = completedTask($task_id, $initial_value);
                 break;
+
+            case "delete":
+                $updated_value = deleteTask($task_id);
         }
 
         $response['id_task'] = $task_id;

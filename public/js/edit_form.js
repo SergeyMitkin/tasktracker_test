@@ -1,22 +1,33 @@
-// При нажатии кнопки "Изменить" у даннхы задачи, где ркдактируется текст (название и описание задачи), показываем форму редактирования
-$(".edit-text-button").on('click', function () {
+// При нажатии кнопки "Изменить" при редактировании имени задачи
+$("#edit-task_modal_title-button").on('click', function () {
 
-    var changeButtonId = $(this).attr("id"); // Получаем id кнопки "Изменить". Она содержит обозначение поля задачи (имя, ответственный, срок выполнения и т.д.), которое мы изменяем
-    var elChangedData = changeButtonId.split('-')[1]; // Получаем значение поля задачи для редактирования
-    var formId = 'edit-' + elChangedData + '-form'; // Получаем id формы редактирования
-    var inputForChangeId = elChangedData + '-input'; // Получаем id поля редактирования текста
+    var elTitle = document.getElementById("task_modal_title"); // Элемент с именем задачи
+    var elTitleForm = document.getElementById("edit-task_modal_title-form"); // Форма редактирования имени задачи
+    var elChangeButton = document.getElementById("edit-task_modal_title-button"); // Кнопка "Изменить"
+    var elInput = document.getElementById("task_modal_title-input"); // Input для редактирования имени
 
-    var elChangedValue = document.getElementById(elChangedData); // Элемент с иходным значением изменяемого поля
-    var elEditForm = document.getElementById(formId); // Форма редактирования
-    var elChangeButton = document.getElementById(changeButtonId); // Кнопка изменить в соответсвующем поле
+    var initialTitle = elTitle.textContent; // Исходное имя задачи
+    elInput.setAttribute("value", initialTitle) // Помещаем исходное значение в поле формы редактирования
 
-    var elInputForChange = document.getElementById(inputForChangeId); // Input для изменения данных
-    var initialValue = elChangedValue.textContent; // Исходное значение
-    elInputForChange.setAttribute("value", initialValue); // Помещаем исходное значение в поле формы редактирования
+    elTitle.setAttribute("hidden", ""); // Скрываем элемент со значением поля
+    elTitleForm.removeAttribute("hidden"); // Показываем форму редактирования
+    elChangeButton.setAttribute("hidden", ""); // Скрываем кнопку "Изменить"
 
-    // При нажатии кнопки изменить:
-    elChangedValue.setAttribute("hidden", ""); // Скрываем элемент со значением поля
-    elEditForm.removeAttribute("hidden"); // Показываем форму редактирования
+})
+
+// При нажатии кнопки "Изменить" при редактировании описания задачи
+$("#edit-task_modal_description-button").on('click', function () {
+
+    var elDescription = document.getElementById("task_modal_description"); // Элемент с описанием задачи
+    var elDescriptionForm = document.getElementById("edit-task_modal_description-form"); // Форма редактирования описания
+    var elChangeButton = document.getElementById("edit-task_modal_description-button"); // Кнопка "Изменить"
+    var elTextarea = document.getElementById("task_modal_description-textarea"); // Textarea для редактирования описания
+
+    var initialDescription = elDescription.textContent; // Исходное значение описания
+    elTextarea.textContent = initialDescription; // Помещаем исходное значение в поле формы редактирования
+
+    elDescription.setAttribute("hidden", ""); // Скрываем элемент со значением поля
+    elDescriptionForm.removeAttribute("hidden"); // Показываем форму редактирования
     elChangeButton.setAttribute("hidden", ""); // Скрываем кнопку "Изменить"
 })
 
@@ -134,6 +145,40 @@ $("#edit-task_modal_status-button").on('click', function () {
                 elCompleteButton.textContent = "Выполнена";
                 elCompleteButton.classList.replace('btn-warning', 'btn-success');
                 elStatusCardPreview.setAttribute('src', 'img/uncompleted.png');
+            }
+        },
+        //dataType : "json"
+    });
+})
+
+// При нажатии кнопки "Удалить", удаляем задачу
+$("#edit-task_modal_delete-button").on('click', function () {
+
+    var task_id = document.getElementById("task_modal_id").textContent; // Id задачи
+
+    // ajax-запрос
+    var action = "taskUpdate";
+
+    $.ajax({
+        url: 'index.php',
+        type: "POST",
+        data: {
+            ajax: action,
+            id_task: task_id,
+            update: 'delete',
+        },
+        error: function () {
+            alert('Что-то пошло не так!');
+        },
+        success: function(response){
+            var obj = jQuery.parseJSON(response);
+            var res = obj['updated_value'];
+
+            // Если задача удалена, перезагружаем страницу
+            if (res == "Задача удалена"){
+                window.location.reload();
+            } else {
+                alert('Что-то пошло не так!!!');
             }
         },
         //dataType : "json"
