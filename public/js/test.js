@@ -1,10 +1,6 @@
-function change(user){
-    user.name = "Tom";
-}
-
-var bob ={
-    name: "Bob"
-};
-console.log("before change:", bob.name);    // Bob
-change(bob);
-console.log("after change:", bob.name);     // Tom
+/*
+var prices = [1, 2, 125, 19, 14, 156];
+console.log(prices.sort(function (a, b) {
+    return a-b;
+}));
+*/

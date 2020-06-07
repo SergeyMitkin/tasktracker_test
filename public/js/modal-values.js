@@ -14,7 +14,7 @@ function getTaskValues(e) {
     var elTaskCreatedDate = document.getElementById('modal-task-created-date'); // Дата создания задачи
     var elTaskDeadLine = document.getElementById('task_modal_deadline'); // Срок исполненеия
 
-    var elTaskCompleteButton = document.getElementById("edit-task_modal_status-button"); // Кнопка "Выполнена/Невыполнена"
+    var elTaskCompleteButton = document.getElementById("edit-task_modal_status-button"); // Кнопка "Выполнена/Не выполнена"
     var elTaskStatus = document.getElementById('task_modal_status'); // Статус задачи
     var elTaskId = document.getElementById("task_modal_id"); // Скрытый элемент, содержащий id задачи
 
@@ -76,12 +76,15 @@ function getTaskValues(e) {
                 }
             }
 
+            var created_date = obj['created_at']; // Получаем дату создания задачи в Unix timestamp
+            var dead_line = obj['dead_line']; // Получаем дату создания задачи в Unix timestamp
+
             // Отображаем данные задачи в модальном окне
             elTitle.textContent = obj['task_name']; // Имя задачи
             elDescription.textContent = obj['description']; // Описание задачи
             elUser.textContent = obj['user_name']; // Ответственный
-            elTaskCreatedDate.textContent = obj['created_at']; // Дата создания задачи
-            elTaskDeadLine.textContent = obj['dead_line'].substr(0, 16); // Срок выполнения задачи без секнд
+            elTaskCreatedDate.textContent = timestampToDate(created_date); // Дата создания задачи
+            elTaskDeadLine.textContent = timestampToDate(dead_line).substr(0, 16); // Срок выполнения задачи без секунд
             elTaskStatus.textContent = obj['status_name']; // Статаус задачи
 
             // Помещаем id исходного ответственного в поле input hidden для отображения его в <select> при смене пользователя, ответсвенного за выполнение задачи

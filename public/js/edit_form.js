@@ -2,12 +2,22 @@
 $("#edit-task_modal_title-button").on('click', function () {
 
     var elTitle = document.getElementById("task_modal_title"); // Элемент с именем задачи
+
     var elTitleForm = document.getElementById("edit-task_modal_title-form"); // Форма редактирования имени задачи
     var elChangeButton = document.getElementById("edit-task_modal_title-button"); // Кнопка "Изменить"
-    var elInput = document.getElementById("task_modal_title-input"); // Input для редактирования имени
 
-    var initialTitle = elTitle.textContent; // Исходное имя задачи
-    elInput.setAttribute("value", initialTitle) // Помещаем исходное значение в поле формы редактирования
+    var elSpanForInput = document.getElementById("input-for-title"); // Input дляредактирования имени задачи
+    var groupForInput = document.getElementById("group-for-title-input"); // Родительский элемент для input
+    var initialTitle = elTitle.textContent;     // Исходное имя задачи
+
+    groupForInput.removeChild(elSpanForInput); // Удаляем старый input, так как возможно там сохранились данные от редактирования предыдущей задачи
+
+    // Создаём новый input и передаём туда редактируемое имя задачи
+    var sp = document.createElement("span");
+    sp.innerHTML = '<input type="text" id="task_modal_title-input" name="task_name" value="' + initialTitle +'">';
+    sp.id = "input-for-title";
+
+    groupForInput.appendChild(sp); // Добавляем новый input в форму
 
     elTitle.setAttribute("hidden", ""); // Скрываем элемент со значением поля
     elTitleForm.removeAttribute("hidden"); // Показываем форму редактирования
@@ -21,10 +31,19 @@ $("#edit-task_modal_description-button").on('click', function () {
     var elDescription = document.getElementById("task_modal_description"); // Элемент с описанием задачи
     var elDescriptionForm = document.getElementById("edit-task_modal_description-form"); // Форма редактирования описания
     var elChangeButton = document.getElementById("edit-task_modal_description-button"); // Кнопка "Изменить"
-    var elTextarea = document.getElementById("task_modal_description-textarea"); // Textarea для редактирования описания
 
-    var initialDescription = elDescription.textContent; // Исходное значение описания
-    elTextarea.textContent = initialDescription; // Помещаем исходное значение в поле формы редактирования
+    var elDivForTextarea = document.getElementById("textarea-for-description"); // Textarea для  редактирования имени задачи
+    var groupForTextarea = document.getElementById("group-for-description-textarea"); // Родительский элемент для textarea
+    var initialDescription = elDescription.textContent;     // Исходное описание задачи
+
+    groupForTextarea.removeChild(elDivForTextarea); // Удаляем старую textarea, так как возможно там сохранились данные от редактирования предыдущей задачи
+
+    // Создаём новую textarea и передаём туда редактируемое описание задачи
+    var dv = document.createElement("div");
+    dv.innerHTML = '<textarea type="text" id="task_modal_description-textarea" name="task_description">' + initialDescription + '</textarea>';
+    dv.id = "textarea-for-description";
+
+    groupForTextarea.appendChild(dv); // Добавляем новую textarea в форму
 
     elDescription.setAttribute("hidden", ""); // Скрываем элемент со значением поля
     elDescriptionForm.removeAttribute("hidden"); // Показываем форму редактирования

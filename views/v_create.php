@@ -70,5 +70,8 @@
                 </div>
             <?}?>
 
+            <div class="group" align="center">
+                <button type="submit" class="btn btn-light">Отправить</button>
+            </div>
     </form>
 </div>

@@ -4,8 +4,8 @@
     <?}
     ?>
 </script>
-<div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="" id="task-modal">
+    <div class="">
         <div class="modal-content">
             <div class="modal-header">
                 <!-- id задачи -->
@@ -15,9 +15,9 @@
                 <h1 class="modal-title initial-value card-title" id="task_modal_title"></h1>
 
                 <form class="edit-form" id="edit-task_modal_title-form" hidden>
-                    <div class="group" id="group-for-title-input">
+                    <div class="group">
                         <label for="task_modal_title-input">Название задачи </label>
-                        <span id="input-for-title"><input type="text" id="task_modal_title-input" name="task_name" placeholder="Название задачи"></span>
+                        <input type="text" id="task_modal_title-input" name="task_name" placeholder="Название задачи">
                     </div>
 
                     <input id="hidden-title" class="hidden-task-id" name="hidden_title" type="hidden">
@@ -43,10 +43,8 @@
                 <p id="task_modal_description" class="task_description initial-value"></p>
 
                 <form class="edit-form" id="edit-task_modal_description-form" hidden>
-                    <div class="group" id="group-for-description-textarea">
-                        <div id="textarea-for-description">
-                            <textarea type="text" id="task_modal_description-textarea" name="task_description"></textarea>
-                        </div>
+                    <div class="group">
+                        <textarea type="text" id="task_modal_description-textarea" name="task_description"></textarea>
                     </div>
 
                     <input id="hidden-description" class="hidden-task-id" name="hidden_description" type="hidden">

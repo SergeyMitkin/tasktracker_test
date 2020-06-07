@@ -35,6 +35,7 @@ addEvent(elEditTitleForm, 'submit', function (e) {
 
             elEditTitleForm.setAttribute("hidden", ""); // Скрываем форму изменения названия
             elTitle.removeAttribute("hidden"); // Показываем элемент с названием задачи
+
         },
         //dataType : "json"
     });
