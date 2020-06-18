@@ -34,6 +34,42 @@ $("#sort_user_name").on('click', function () {
     }
 })
 
+// Сортировка по сроку выполнения
+$("#sort_deadline").on('click', function () {
+
+    var hrefSortDeadline = document.getElementById("sort_deadline"); // Ссылка для сортировки
+    hrefSortDeadline.setAttribute('href', '#'); // Отключаем ссылку для сортировки для php, если включен JS
+
+    let row_tasks = document.querySelector("#row-tasks"); // Div - родитель для карточек задач
+
+    // ASC и DESC сортировка
+    if (hrefSortDeadline.textContent == 'Задачи по сроку выполнения (←)') {
+        // Сортировка "пузырьком" карточек задач по атрибуту data-sort-deadline, содержащему Unix срока выполнения
+        for (let i = 0; i < row_tasks.children.length; i++){
+            for (let j = i; j < row_tasks.children.length; j++){
+                if (row_tasks.children[i].getAttribute('data-sort-deadline') <
+                    row_tasks.children[j].getAttribute('data-sort-deadline')){
+                    replacedNode = row_tasks.replaceChild(row_tasks.children[j], row_tasks.children[i]);
+                    insertAfter(replacedNode, row_tasks.children[i]);
+                }
+            }
+        }
+        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (→)';
+    }else{
+        // Сортировка "пузырьком" карточек задач по атрибуту data-sort-deadline, содержащему Unix срока выполнения
+        for (let i = 0; i < row_tasks.children.length; i++) {
+            for (let j = i; j < row_tasks.children.length; j++) {
+                if (row_tasks.children[i].getAttribute('data-sort-deadline') >
+                    row_tasks.children[j].getAttribute('data-sort-deadline')) {
+                    replacedNode = row_tasks.replaceChild(row_tasks.children[j], row_tasks.children[i]);
+                    insertAfter(replacedNode, row_tasks.children[i]);
+                }
+            }
+        }
+        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (←)';
+    }
+})
+
 // Вспомогательная функция для сортировки "пузырьком"
 function insertAfter(elem, refElem) {
     return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
