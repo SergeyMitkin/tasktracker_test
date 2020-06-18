@@ -32,10 +32,11 @@ addEvent(elEditDeadlineForm, 'submit', function (e) {
 
             var updated_task_deadline = timestampToDate(obj['updated_value']).substr(0,16); // Новое значения срока исполнения без секунд
 
-            var elDeadline = document.getElementById('task_modal_deadline');
-            var idDeadlineCardPreview = "deadline-span_task_" + task_id;
-            var elDeadlineCardPreview = document.getElementById(idDeadlineCardPreview);
+            var elDeadline = document.getElementById('task_modal_deadline'); // Элемент, отображающий срок выполнения
+            var idDeadlineCardPreview = "deadline-span_task_" + task_id; // Id элемента, отображающего deadline на превью задачи
+            var elDeadlineCardPreview = document.getElementById(idDeadlineCardPreview); // Элемент, отображающий deadline на превью задачи
 
+            // Отображение обновлённого срока выполнения на превью и в карточке задачи
             elDeadline.textContent = updated_task_deadline;
             elDeadlineCardPreview.textContent = updated_task_deadline;
 
