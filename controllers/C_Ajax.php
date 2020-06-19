@@ -47,7 +47,7 @@ class C_Ajax extends Controller
 
             case "user":
                 if (updateTaskUser($task_id, $initial_value))
-                $updated_value = getUserName($initial_value); // получаем имя нового ответсвенного по переданному id
+                $updated_value = getUserName($initial_value); // Получаем имя нового ответсвенного по переданному id
                 break;
 
             case "deadline":
@@ -55,7 +55,8 @@ class C_Ajax extends Controller
                 break;
 
             case "status":
-                $updated_value = completedTask($task_id, $initial_value);
+                $task_status_id = completedTask($task_id, $initial_value); // Обновляем статус
+                $updated_value = getTaskStatus($task_status_id); // Получаем обновлённый статус
                 break;
 
             case "delete":

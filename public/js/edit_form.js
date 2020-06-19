@@ -119,7 +119,7 @@ $('#edit-task_modal_user-button').on('click', function(){
 $("#edit-task_modal_status-button").on('click', function () {
 
     var elStatus = document.getElementById("task_modal_status"); // Элемент, выводящий статус задачи
-    var elCompleteButton = document.getElementById("edit-task_modal_status-button"); // Кнопка "Выполнена/Невыполнена"
+    var elCompleteButton = document.getElementById("edit-task_modal_status-button"); // Кнопка "Выполнена/Не выполнена"
     var task_id = document.getElementById("task_modal_id").textContent; // Id задачи
 
     // Меняем статус задачи с "выполнена" на "не выполнена" и наоборот
@@ -147,13 +147,13 @@ $("#edit-task_modal_status-button").on('click', function () {
             // Получаем id задачи и id статуса
             var obj = jQuery.parseJSON(response);
             var task_id = obj['id_task'];
-            var status_id = obj['updated_value'];
+            var status_id = obj['updated_value'][0]['id_status'];
 
             // Получаем элемент превью
             var idStatusCardPreview = "status_task_" + task_id;
             var elStatusCardPreview = document.getElementById(idStatusCardPreview);
 
-            // Устанавливаем иконку completed.png иил uncompleted.png
+            // Устанавливаем обозначения для обновлённого статуса
             if (status_id == 1){
                 elStatus.textContent = "выполнена";
                 elCompleteButton.textContent = "Не выполнена";
