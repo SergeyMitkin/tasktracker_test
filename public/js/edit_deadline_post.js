@@ -40,6 +40,10 @@ addEvent(elEditDeadlineForm, 'submit', function (e) {
             elDeadline.textContent = updated_task_deadline;
             elDeadlineCardPreview.textContent = updated_task_deadline;
 
+            // Обновляем параметр сортировки в превью
+            var idColumnTask = document.getElementById("column_task_" + task_id);
+            idColumnTask.setAttribute("data-sort-deadline", obj['updated_value']);
+
             elEditDeadlineForm.setAttribute("hidden", ""); // Скрываем форму редактирования срока выполнения
             elDeadline.removeAttribute("hidden"); // Показываем элемент со сроком выполнения
 

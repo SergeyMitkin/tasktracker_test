@@ -153,17 +153,21 @@ $("#edit-task_modal_status-button").on('click', function () {
             var idStatusCardPreview = "status_task_" + task_id;
             var elStatusCardPreview = document.getElementById(idStatusCardPreview);
 
+            var idColumnTask = document.getElementById("column_task_" + task_id); // Получаем id превью задачи
+
             // Устанавливаем обозначения для обновлённого статуса
             if (status_id == 1){
-                elStatus.textContent = "выполнена";
-                elCompleteButton.textContent = "Не выполнена";
-                elCompleteButton.classList.replace('btn-success', 'btn-warning');
-                elStatusCardPreview.setAttribute('src', 'img/completed.png');
+                elStatus.textContent = "выполнена" // Статус в карточке задачи
+                elCompleteButton.textContent = "Не выполнена"; // На кнопке о выполнении
+                elCompleteButton.classList.replace('btn-success', 'btn-warning'); // Стиль для кнопки о выполнении
+                elStatusCardPreview.setAttribute('src', 'img/completed.png'); // Значок о выполнении в превью задачи
+                idColumnTask.setAttribute("data-sortStatus", "выпонена"); // Обновляем параметр для сортировки
             } else {
-                elStatus.textContent = "не выполнена";
-                elCompleteButton.textContent = "Выполнена";
-                elCompleteButton.classList.replace('btn-warning', 'btn-success');
-                elStatusCardPreview.setAttribute('src', 'img/uncompleted.png');
+                elStatus.textContent = "не выполнена"; // Статус в карточке задачи
+                elCompleteButton.textContent = "Выполнена"; // На кнопке о выполнении
+                elCompleteButton.classList.replace('btn-warning', 'btn-success'); // Стиль для кнопки о выполнении
+                elStatusCardPreview.setAttribute('src', 'img/uncompleted.png'); // Значок о выполнении в превью задачи
+                idColumnTask.setAttribute("data-sortStatus", "не выполнена"); // Обновляем параметр для сортировки
             }
         },
         //dataType : "json"

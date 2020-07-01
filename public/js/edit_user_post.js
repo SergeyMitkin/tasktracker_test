@@ -39,6 +39,10 @@ addEvent(elEditUserForm, 'submit', function (e) {
             elUser.textContent = updated_user_name;
             elUserCardPreview.textContent = updated_user_name;
 
+            // Обновляем параметр для сортировки по имени ответсвенного
+            var idColumnTask = document.getElementById("column_task_" + task_id); // Id превью задачи
+            idColumnTask.setAttribute("data-sortUser", updated_user_name);
+
             elEditUserForm.setAttribute("hidden", "");// Скрываем форму изменения ответсвенного, елси нет доступа
             elUser.removeAttribute("hidden"); // Показываем едемент с именем ответсвенного, если он был скрыт
         },
