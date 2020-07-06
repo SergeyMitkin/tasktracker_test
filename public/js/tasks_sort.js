@@ -20,16 +20,8 @@ function sortUserName(){
                 }
             }
         }
-        hrefSortUserName.textContent = 'Задачи по имени пользователя (a-z↓)';
-        $("#row-tasks .list-group:gt(2)").hide();
-
-        var activePageNumber = $(".pagination li.active")[0].children[0].textContent;
-        var firstPage =  $(".pagination li.first-page");
-
-        if (activePageNumber != '1') {
-            $(".pagination li").removeClass("active");
-            firstPage.addClass("active");
-        }
+        hrefSortUserName.textContent = 'Задачи по имени пользователя (a-z↓)'; // Изменяем текст ссылки
+        startSortWithFirstPage(); // Начинаем сортировку с первой страницы
 
     }else if (hrefSortUserName.textContent == 'Задачи по имени пользователя (a-z↓)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sortUser, содержащему имя пользователя
@@ -43,17 +35,8 @@ function sortUserName(){
                 }
             }
         }
-        hrefSortUserName.textContent = 'Задачи по имени пользователя (z-a↓)';
-        $("#row-tasks .list-group:gt(2)").hide();
-
-        var firstPage =  $(".pagination li.first-page");
-        var activePageNumber = $(".pagination li.active")[0].children[0].textContent;
-
-        if (activePageNumber != '1') {
-            console.log('bingo');
-            $(".pagination li").removeClass("active");
-            firstPage.addClass("active");
-        }
+        hrefSortUserName.textContent = 'Задачи по имени пользователя (z-a↓)'; // Изменяем текст ссылки
+        startSortWithFirstPage(); // Начинаем сортировку с первой страницы
     }
 }
 
@@ -68,6 +51,7 @@ $("#sort_deadline").on('click', function () {
     // ASC и DESC сортировка
     if (hrefSortDeadline.textContent == 'Задачи по сроку выполнения (←)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sort-deadline, содержащему Unix срока выполнения
+        $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++){
             for (let j = i; j < row_tasks.children.length; j++){
                 if (row_tasks.children[i].getAttribute('data-sort-deadline') <
@@ -77,9 +61,12 @@ $("#sort_deadline").on('click', function () {
                 }
             }
         }
-        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (→)';
-    }else{
+        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (→)'; // Изменяем текст ссылки
+        startSortWithFirstPage(); // Начинаем сортировку с первой страницы
+
+    }else if (hrefSortDeadline.textContent == 'Задачи по сроку выполнения (→)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sort-deadline, содержащему Unix срока выполнения
+        $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++) {
             for (let j = i; j < row_tasks.children.length; j++) {
                 if (row_tasks.children[i].getAttribute('data-sort-deadline') >
@@ -89,7 +76,8 @@ $("#sort_deadline").on('click', function () {
                 }
             }
         }
-        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (←)';
+        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (←)'; // Изменяем текст ссылки
+        startSortWithFirstPage(); // Начинаем сортировку с первой страницы
     }
 })
 
@@ -104,6 +92,7 @@ $("#sort_status").on('click', function () {
     // ASC и DESC сортировка
     if (hrefSortStatus.textContent == 'Задачи по статусу (z-a↓)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sortStatus, содержащему статус задачи
+        $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++){
             for (let j = i; j < row_tasks.children.length; j++){
                 if (row_tasks.children[i].getAttribute('data-sortStatus').toLowerCase() <
@@ -113,9 +102,12 @@ $("#sort_status").on('click', function () {
                 }
             }
         }
-        hrefSortStatus.textContent = 'Задачи по статусу (a-z↓)';
+        hrefSortStatus.textContent = 'Задачи по статусу (a-z↓)'; // Изменяем текст ссылки
+        startSortWithFirstPage(); // Начинаем сортировку с первой страницы
+
     }else{
         // Сортировка "пузырьком" карточек задач по атрибуту data-sortStatus, содержащему статус задачи
+        $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++) {
             for (let j = i; j < row_tasks.children.length; j++) {
                 if (row_tasks.children[i].getAttribute('data-sortStatus').toLowerCase() >
@@ -125,11 +117,25 @@ $("#sort_status").on('click', function () {
                 }
             }
         }
-        hrefSortStatus.textContent = 'Задачи по статусу (z-a↓)';
+        hrefSortStatus.textContent = 'Задачи по статусу (z-a↓)';// Изменяем текст ссылки
+        startSortWithFirstPage(); // Начинаем сортировку с первой страницы
     }
 })
 
 // Вспомогательная функция для сортировки "пузырьком"
 function insertAfter(elem, refElem) {
     return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+}
+
+// Начинаем сортировку с первой страницы
+function startSortWithFirstPage() {
+    $("#row-tasks .list-group:gt(" + (limitPerPage - 1) + ")").hide(); // Скрываем задачи кроме первых, задаваемых при пагинации
+    var activePageNumber = $(".pagination li.active")[0].children[0].textContent; // Номер активной страницы
+    var firstPage =  $(".pagination li.first-page"); // Первая страница
+
+    // При нажатии кнопки сортировки делаем активной первую страницу
+    if (activePageNumber != '1') {
+        $(".pagination li").removeClass("active");
+        firstPage.addClass("active");
+    }
 }
