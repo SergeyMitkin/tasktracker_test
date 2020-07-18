@@ -1,12 +1,17 @@
 <script>
-    <? if (isset($_SESSION['user']['login'])){;?>
+    <?
+    // Определяем пользователя для вывода полей задачи, к которым у него есть права
+    if (isset($_SESSION['user']['login'])){;?>
     var sessionUserLogin = "<? echo $_SESSION['user']['login']; ?>";
     <?}
     ?>
 </script>
+
+<!-- Модальное окно задачи -->
 <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModal" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
                 <!-- id задачи -->
                 <p id="task_modal_id" hidden></p>
@@ -14,6 +19,7 @@
                 <!-- Название задачи -->
                 <h1 class="modal-title initial-value card-title" id="task_modal_title"></h1>
 
+                <!-- Форма редактирования названия -->
                 <form class="edit-form" id="edit-task_modal_title-form" hidden>
                     <div class="group" id="group-for-title-input">
                         <label for="task_modal_title-input">Название задачи </label>
@@ -27,8 +33,10 @@
                     </div>
                 </form>
 
+                <!-- Кнопка "Редактировать" -->
                 <button class="btn btn-outline-light edit-button edit-text-button" id="edit-task_modal_title-button" hidden>Изменить</button>
 
+                <!-- Кнопка закрытия модального окна -->
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -42,6 +50,7 @@
 
                 <p id="task_modal_description" class="task_description initial-value"></p>
 
+                <!-- Форма редактирования описания -->
                 <form class="edit-form" id="edit-task_modal_description-form" hidden>
                     <div class="group" id="group-for-description-textarea">
                         <div id="textarea-for-description">
@@ -59,6 +68,7 @@
                 <!-- Ответственный -->
                 <p class="task-body-label">Ответственный: <span class="initial-value" id="task_modal_user"></span></p>
 
+                <!-- Форма изменения ответственного -->
                 <form class="edit-form" id="edit-task_modal_user-form" hidden>
                     <div class="group">
                         <label for="task_modal_user-select">Выберете ответственного</label>
@@ -81,6 +91,7 @@
                     <em class="initial-value" id="task_modal_deadline"></em>
                 </p>
 
+                <!-- Форма изменения срока выполнения -->
                 <form class="edit-form" id="edit-task_modal_deadline-form" hidden>
 
                     <div class="group">
@@ -111,8 +122,11 @@
                 </p>
 
             </div>
+
             <div class="modal-footer">
+                <!-- Кнопка изменения статуса -->
                 <button class="btn btn-success edit-button" id="edit-task_modal_status-button">Выполнена</button>
+                <!-- Кнопка удаления -->
                 <button class="btn btn-danger edit-button" id="edit-task_modal_delete-button">Удалить</button>
             </div>
         </div>

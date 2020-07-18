@@ -1,23 +1,32 @@
 <?php
 /**
- * Шаблон главной страницы
+ * Основной шаблон
  * =======================
  * $text - текст
  */
 ?>
 
+<!-- Шаблон создания/редактирования задачи -->
 <div class="create-container">
+    <!-- Выводим ответ о создании/редактировании задачи -->
     <?=$response?>
 
+    <!-- Форма создания/редактирования задачи без JS -->
     <form method="post" action ='?act=create'/>
         <h1><?=$create_or_update?></h1>
 
+            <!-- Если есть $_GET['edit'], редактируем задачу -->
             <?
             if($_GET['edit'] == 'on'){
                 ?>
 
                 <div class="group">
+                    <input type="hidden" id="task_id" name="task_id" value="<?=$task_id?>">
+                </div>
+
+                <div class="group">
                     <p>Ответственный: <?=$user_name?></p>
+                    <input type="hidden" id="user_id" name="user_id" value="<?=$user_id?>">
                 </div>
 
                 <div class="group">
@@ -35,14 +44,16 @@
                     <input type="hidden" id="dead_line" name="dead_line" value="<?=$dead_line?>">
                 </div>
 
-            <?}else{?>
+            <?}
 
+            // Иначе, создаём новую задачу задачу
+            else{?>
                 <div class="group">
-                    <label for="name">Выберете ответсвенного</label>
-                    <select id="name" name="name">
+                    <label for="user">Выберете ответственного</label>
+                    <select id="user" name="user">
                     <?php
-                    foreach($usersData as $name) {
-                    echo '<option value="' . $name['user_id'] . '">' . $name['user_name'] . '</option>';
+                    foreach($usersData as $user) {
+                    echo '<option value="' . $user['user_id'] . '">' . $user['user_name'] . '</option>';
                     }
                     ?>
                     </select>

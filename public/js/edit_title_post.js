@@ -3,10 +3,11 @@ var elEditTitleForm = document.getElementById('edit-task_modal_title-form'); // 
 
 addEvent(elEditTitleForm, 'submit', function (e) {
     e.preventDefault();
-    var elements = this.elements;
-    var initial_value = elements.task_name.value;
-    var task_id = elements.hidden_title.value;
-    var action = "taskUpdate";
+    var elements = this.elements; // Элементы формы
+    var initial_value = elements.task_name.value; // Отправляем отредактированное имя задачи на сервер
+    var task_id = elements.hidden_title.value; // Получаем Id задачи из скрытого поля формы
+
+    var action = "taskUpdate"; // Действие для ajax-запроса
 
     $.ajax({
         url: 'index.php',
@@ -23,15 +24,15 @@ addEvent(elEditTitleForm, 'submit', function (e) {
         success: function(response){
 
             // Получаем имя и id отредактированной задачи
-            var obj = jQuery.parseJSON(response);
-            var task_id = obj['id_task'];
-            var updated_task_name = obj['updated_value'];
-            var elTitle = document.getElementById('task_modal_title');
-            var idTitleCardPreview = "title_task_" + task_id;
-            var elTitleCardPreview = document.getElementById(idTitleCardPreview);
+            var obj = jQuery.parseJSON(response); // Данные задачи, пришедшие с сервера
+            var task_id = obj['id_task']; // Id задачи
+            var updated_task_name = obj['updated_value']; // Отредактированное имя
+            var elTitle = document.getElementById('task_modal_title'); // Элемент, отображающийимя задачи
+            var idTitleCardPreview = "title_task_" + task_id; // HTML атрибут id превью задачи
+            var elTitleCardPreview = document.getElementById(idTitleCardPreview); // Элемент с превью задачи на главной странице
 
-            elTitle.textContent = updated_task_name;
-            elTitleCardPreview.textContent = updated_task_name;
+            elTitle.textContent = updated_task_name; // Помещаем отредактированное имя в соответсвующий элемент в модальном окне
+            elTitleCardPreview.textContent = updated_task_name; // Помещаем отредактированное имя в соответсвующий элемент в превью задачи
 
             elEditTitleForm.setAttribute("hidden", ""); // Скрываем форму изменения названия
             elTitle.removeAttribute("hidden"); // Показываем элемент с названием задачи

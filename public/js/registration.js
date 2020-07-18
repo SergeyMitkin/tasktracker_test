@@ -12,7 +12,7 @@ function checkLength(e, minLength) {               // Объявляем фук�
     }
 }
 
-// Проверка количества символов поля 'логин '
+// Проверка количества символов поля 'логин'
 var elUserlogin = document.getElementById('login');
 elUserlogin.addEventListener('blur', function (e) {
     checkLength(e,5);
