@@ -63,8 +63,7 @@ class C_Ajax extends Controller // Наследуем от класса шабл
 
             // Редактируем статус задачи
             case "status":
-                $task_status_id = completedTask($task_id, $initial_value); // Обновляем статус
-                $updated_value = getTaskStatus($task_status_id); // Получаем обновлённый статус
+                $updated_value = completedTask($task_id, $initial_value); // ОБновляем статус, определяем его id
                 break;
 
             // Удаляем задачу

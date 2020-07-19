@@ -1,4 +1,6 @@
-// Сортировка по имени пользователя
+// Сортировка задач
+
+// По имени пользователя
 document.querySelector('#sort_user_name').onclick = sortUserName;
 
 function sortUserName(){
