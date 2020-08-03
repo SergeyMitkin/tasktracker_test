@@ -3,23 +3,24 @@
     src: url('../fonts/3952.ttf');
 }
 
-/* поля форм */
+/* Поля форм */
 .group{
     margin: 10px;
     padding: 5px;
 }
 
-/* формы регистрации и авторизации */
+/* Контейнеры для форм регистрации и авторизации */
 .registration-container,
 .auth-container{
     margin: 20px ;
 }
 
-.registration-container form{
+/* Форма регистрации */
+.registration-container form,
+.auth-container form
+{
     margin: 0 auto;
-    margin-left: 33%;
-    margin-right: 33%;
-    size: auto;
+    width: 450px;
     padding: 20px;
     color: whitesmoke;
     background: rgba(235,235,235, 0.75);
@@ -27,21 +28,22 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
 }
 
-.auth-container form{
-    margin: 0 auto;
-    margin-right: 33%;
-    margin-left: 33%;
-    padding: 20px;
-    color: whitesmoke;
-    background: rgba(235,235,235, 0.75);
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+/* При меньшем размере экрана растягиваем форму регистрации или авторизации на всю страницу */
+@media screen and (max-width: 500px) {
+    .registration-container form,
+    .auth-container form
+    {
+        margin: 0 auto;
+        width: 100%;
+        padding: 20px;
+        color: whitesmoke;
+        background: rgba(235,235,235, 0.75);
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+    }
 }
 
-.modal-content{
-    background: rgba(235,235,235, 1.0);
-}
-
+/* H1 в форме авторизации и регистрации */
 .registration-container h1,
 .auth-container h1{
     margin: 0;
@@ -67,6 +69,7 @@
     padding-left: 10px;
     padding-top: 5px;
 }
+
 .registration-container input,
 .auth-container input
 {
