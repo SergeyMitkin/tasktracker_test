@@ -20,7 +20,7 @@
 .auth-container form
 {
     margin: 0 auto;
-    width: 450px;
+    width: 50%;
     padding: 20px;
     color: whitesmoke;
     background: rgba(235,235,235, 0.75);
@@ -29,7 +29,7 @@
 }
 
 /* При меньшем размере экрана растягиваем форму регистрации или авторизации на всю страницу */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 850px) {
     .registration-container form,
     .auth-container form
     {

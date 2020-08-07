@@ -1,10 +1,10 @@
-/* шрифты */
+/* Шрифты */
 @font-face {
     font-family: "3952";
     src: url('../fonts/3952.ttf');
 }
 
-/* основной шаблон */
+/* Основной шаблон */
 body, html{
     margin: 0;
     padding: 0;
@@ -51,7 +51,11 @@ footer{
     background-size: cover;
 }
 
-/* главная страница */
+/* Главная страница */
+.row{
+    margin-bottom: -20px;
+}
+
 .row div{
     padding: 5px 10px;
 }

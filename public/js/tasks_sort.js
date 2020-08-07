@@ -10,7 +10,7 @@ function sortUserName(){
     let row_tasks = document.querySelector("#row-tasks"); // Div - родитель для карточек задач
 
     // ASC и DESC сортировка
-    if (hrefSortUserName.textContent == 'Задачи по имени пользователя (z-a↓)') {
+    if (hrefSortUserName.textContent == 'По имени пользователя (z-a↓)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sortUser, содержащему имя пользователя
         $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++){
@@ -22,10 +22,10 @@ function sortUserName(){
                 }
             }
         }
-        hrefSortUserName.textContent = 'Задачи по имени пользователя (a-z↓)'; // Изменяем текст ссылки
+        hrefSortUserName.textContent = 'По имени пользователя (a-z↓)'; // Изменяем текст ссылки
         startSortWithFirstPage(); // Начинаем сортировку с первой страницы
 
-    }else if (hrefSortUserName.textContent == 'Задачи по имени пользователя (a-z↓)') {
+    }else if (hrefSortUserName.textContent == 'По имени пользователя (a-z↓)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sortUser, содержащему имя пользователя
         $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++) {
@@ -37,7 +37,7 @@ function sortUserName(){
                 }
             }
         }
-        hrefSortUserName.textContent = 'Задачи по имени пользователя (z-a↓)'; // Изменяем текст ссылки
+        hrefSortUserName.textContent = 'По имени пользователя (z-a↓)'; // Изменяем текст ссылки
         startSortWithFirstPage(); // Начинаем сортировку с первой страницы
     }
 }
@@ -51,7 +51,7 @@ $("#sort_deadline").on('click', function () {
     let row_tasks = document.querySelector("#row-tasks"); // Div - родитель для карточек задач
 
     // ASC и DESC сортировка
-    if (hrefSortDeadline.textContent == 'Задачи по сроку выполнения (←)') {
+    if (hrefSortDeadline.textContent == 'По сроку выполнения (←)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sort-deadline, содержащему Unix срока выполнения
         $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++){
@@ -63,10 +63,10 @@ $("#sort_deadline").on('click', function () {
                 }
             }
         }
-        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (→)'; // Изменяем текст ссылки
+        hrefSortDeadline.textContent = 'По сроку выполнения (→)'; // Изменяем текст ссылки
         startSortWithFirstPage(); // Начинаем сортировку с первой страницы
 
-    }else if (hrefSortDeadline.textContent == 'Задачи по сроку выполнения (→)') {
+    }else if (hrefSortDeadline.textContent == 'По сроку выполнения (→)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sort-deadline, содержащему Unix срока выполнения
         $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++) {
@@ -78,7 +78,7 @@ $("#sort_deadline").on('click', function () {
                 }
             }
         }
-        hrefSortDeadline.textContent = 'Задачи по сроку выполнения (←)'; // Изменяем текст ссылки
+        hrefSortDeadline.textContent = 'По сроку выполнения (←)'; // Изменяем текст ссылки
         startSortWithFirstPage(); // Начинаем сортировку с первой страницы
     }
 })
@@ -92,7 +92,7 @@ $("#sort_status").on('click', function () {
     let row_tasks = document.querySelector("#row-tasks"); // Div - родитель для карточек задач
 
     // ASC и DESC сортировка
-    if (hrefSortStatus.textContent == 'Задачи по статусу (z-a↓)') {
+    if (hrefSortStatus.textContent == 'По статусу (z-a↓)') {
         // Сортировка "пузырьком" карточек задач по атрибуту data-sortStatus, содержащему статус задачи
         $("#row-tasks .list-group").show();
         for (let i = 0; i < row_tasks.children.length; i++){
@@ -104,7 +104,7 @@ $("#sort_status").on('click', function () {
                 }
             }
         }
-        hrefSortStatus.textContent = 'Задачи по статусу (a-z↓)'; // Изменяем текст ссылки
+        hrefSortStatus.textContent = 'По статусу (a-z↓)'; // Изменяем текст ссылки
         startSortWithFirstPage(); // Начинаем сортировку с первой страницы
 
     }else{
@@ -119,7 +119,7 @@ $("#sort_status").on('click', function () {
                 }
             }
         }
-        hrefSortStatus.textContent = 'Задачи по статусу (z-a↓)';// Изменяем текст ссылки
+        hrefSortStatus.textContent = 'По статусу (z-a↓)';// Изменяем текст ссылки
         startSortWithFirstPage(); // Начинаем сортировку с первой страницы
     }
 })
